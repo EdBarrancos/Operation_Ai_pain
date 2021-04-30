@@ -9,7 +9,6 @@ extents = Vector2( 6.95537, 10.0088 )
 
 [node name="Player" type="KinematicBody2D"]
 script = ExtResource( 3 )
-DEBUGMOVEMENT = true
 
 [node name="PlayerSprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )
@@ -19,3 +18,5 @@ script = ExtResource( 2 )
 
 [node name="PlayerCollisionShape" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
+
+[node name="SoupInventory" type="Node2D" parent="."]

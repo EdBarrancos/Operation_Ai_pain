@@ -3,6 +3,7 @@ extends KinematicBody2D
 onready var playerSprite = $PlayerSprite
 onready var playerMovement = $PlayerMovement
 onready var playerCollisonShape = $PlayerCollisionShape
+onready var playerSoupInventory = $SoupInventory
 
 #DEBUGS
 export var DEBUGMOVEMENT = false
