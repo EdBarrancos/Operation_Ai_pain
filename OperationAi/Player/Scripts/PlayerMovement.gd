@@ -10,7 +10,7 @@ export var BASE_ACEL = 25
 export var BASE_MAX_VEL = 130
 export var BASE_DECEL = 0.6
 
-
+var DEBUG
 var acel 
 var maxVel
 var decel
@@ -51,15 +51,16 @@ func GetRandomDirections():
 		
 		#Add
 		randomDirections.append(availableDirections[rNumber])
-		
-	print(randomDirections)
+	
+	if DEBUG: print(randomDirections)
 	return randomDirections
 
-func SetDirections(up_, down_, right_, left_):
-	up = up_
-	down = down_
-	right = right_
-	left = left_
+func SetDirections(newDirVec):
+	#up, down, right, left
+	up = newDirVec[0]
+	down = newDirVec[1]
+	right = newDirVec[2]
+	left = newDirVec[3]
 
 #######
 #INPUT#
@@ -108,8 +109,9 @@ func SetVelocityInputX(acel_, decel_, dir):
 #"SETTERS AND GETTERS"#
 #######################
 
-func Init(owner):
+func Init(owner, debug):
 	player = owner
+	DEBUG = debug
 	
 func ResetBaseValues():
 	acel = BASE_ACEL
