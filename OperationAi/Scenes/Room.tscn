@@ -6,8 +6,9 @@
 [node name="Room" type="Node2D"]
 
 [node name="Quarto_Base" type="Sprite" parent="."]
+visible = false
 position = Vector2( -1.3869, 169.117 )
 texture = ExtResource( 2 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( -103.851, 33.2154 )
+position = Vector2( 50.0008, 51.149 )
