@@ -7,4 +7,11 @@ onready var roomScene = load("res://Scenes/Room.tscn")
 func _ready():
 	pass # Replace with function body.
 
-
+func SwitchScene(currentScene, newScene):
+	#Take out the currentScene
+	currentScene.queue_free()
+	AddSceneInstance(newScene)
+	
+func AddSceneInstance(scene):
+	var sceneInstance = scene.instance()
+	add_child(sceneInstance)
