@@ -9,6 +9,10 @@ onready var playerCollisonShape = $PlayerCollisionShape
 func _ready():
 	playerMovement.Init(self)
 
+func _process(delta):
+	if Input.is_action_just_pressed("TEST"):
+		var newDir = playerMovement.GetRandomDirections()
+		playerMovement.SetDirections(newDir[0], newDir[1], newDir[2], newDir[3])
 
 func MovePlayer(velocity, up):
 	move_and_slide(velocity, up)

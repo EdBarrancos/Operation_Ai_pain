@@ -38,7 +38,22 @@ func _ready():
 ############
 
 func GetRandomDirections():
-	pass
+	var rng = RandomNumberGenerator.new()
+	rng.randomize()
+	var randomDirections = []
+	
+	while randomDirections.size() != availableDirections.size():
+		#Get Random Number
+		var rNumber = rng.randi_range(0, availableDirections.size() - 1)
+		
+		#Check Availability
+		if randomDirections.has(availableDirections[rNumber]): continue
+		
+		#Add
+		randomDirections.append(availableDirections[rNumber])
+		
+	print(randomDirections)
+	return randomDirections
 
 func SetDirections(up_, down_, right_, left_):
 	up = up_
