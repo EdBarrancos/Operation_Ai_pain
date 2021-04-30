@@ -1,3 +1,10 @@
-[gd_scene format=2]
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Player/ArtAssets/elephant.png" type="Texture" id=1]
 
 [node name="Player" type="KinematicBody2D"]
+
+[node name="PlayerSprite" type="Sprite" parent="."]
+position = Vector2( 255.73, 60.8885 )
+scale = Vector2( 0.0657395, 0.0742406 )
+texture = ExtResource( 1 )

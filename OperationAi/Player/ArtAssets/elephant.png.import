@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/elephant.png-a19f3da94fcd756a78fa6a69ad05d3f9.stex"
+path="res://.import/elephant.png-74006c2cac111ed05646f9c0a68b2e02.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ArtAssets/elephant.png"
-dest_files=[ "res://.import/elephant.png-a19f3da94fcd756a78fa6a69ad05d3f9.stex" ]
+source_file="res://Player/ArtAssets/elephant.png"
+dest_files=[ "res://.import/elephant.png-74006c2cac111ed05646f9c0a68b2e02.stex" ]
 
 [params]
 
