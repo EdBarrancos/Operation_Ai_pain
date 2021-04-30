@@ -1,16 +1,14 @@
 extends KinematicBody2D
 
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
+onready var playerSprite = $PlayerSprite
+onready var playerMovement = $PlayerMovement
+onready var playerCollisonShape = $PlayerCollisionShape
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func MovePlayer(velocity, up):
+	move_and_slide(velocity, up)
