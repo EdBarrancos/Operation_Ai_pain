@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Player/Scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://ArtAssets/Quarto_Base.png" type="Texture" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://Scenes/Monster.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scripts/Room.gd" type="Script" id=5]
 [ext_resource path="res://Scripts/VignetteShader.gd" type="Script" id=6]
+[ext_resource path="res://Scripts/AudioServer.gd" type="Script" id=7]
 
 [sub_resource type="Shader" id=1]
 code = "shader_type canvas_item;
@@ -57,7 +58,11 @@ script = ExtResource( 6 )
 finalAlpha = 3.0
 
 [node name="Monster" parent="." instance=ExtResource( 4 )]
-initialHunger = 50
+initialHunger = 99
+waitingTime = 3
+
+[node name="AudioServer" type="Node2D" parent="."]
+script = ExtResource( 7 )
 
 [connection signal="monster_got_hungrier" from="Monster" to="." method="_on_Monster_monster_got_hungrier"]
 [connection signal="monster_is_full" from="Monster" to="." method="_on_Monster_monster_is_full"]

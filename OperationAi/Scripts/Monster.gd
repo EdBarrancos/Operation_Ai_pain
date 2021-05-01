@@ -58,6 +58,11 @@ func IsStarving():
 	
 func GetPercentageHunger():
 	return 100 - ((currentHunger*100) / maxHunger)
+	
+func GetQuarterHunger():
+	for i in range(5):
+		if currentHunger >= (maxHunger*i)/5 and currentHunger < (maxHunger*(i+1))/5:
+			return 4-i
 
 
 

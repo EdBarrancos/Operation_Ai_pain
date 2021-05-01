@@ -6,6 +6,8 @@ onready var winningMenuScene = load("res://Scenes/Menus/WinningMenu.tscn")
 onready var losingMenuScene = load("res://Scenes/Menus/LosingMenu.tscn")
 
 
+onready var musicStream = $GameMusicLoop
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
