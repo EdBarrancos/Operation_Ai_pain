@@ -25,7 +25,7 @@ func _ready():
 	playerCamera.Init(self, DCAMERA)
 	playerCamera.SetLimits(upperLimit, lowerLimit, leftLimit, rightLimit)
 
-func _process(delta):
+func _process(_delta):
 	if Input.is_action_just_pressed("TEST"):
 		playerMovement.SetDirections(playerMovement.GetRandomDirections())
 

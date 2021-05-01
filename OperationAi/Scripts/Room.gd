@@ -7,7 +7,7 @@ onready var vignette = $CanvasLayer/VignetteShader
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	vignette.SetAlpha(monster.GetPercentageHunger())
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -16,8 +16,13 @@ func _ready():
 
 
 func _on_Monster_monster_is_full():
-	print("Monster is Full")
+	#print("Monster is Full")
+	pass
 
 
 func _on_Monster_monster_is_hungry():
 	print("Monster is Hungry")
+
+
+func _on_Monster_monster_got_hungrier():
+	vignette.SetAlpha(monster.GetPercentageHunger())

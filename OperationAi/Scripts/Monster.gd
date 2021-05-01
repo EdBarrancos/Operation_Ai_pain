@@ -2,6 +2,7 @@ extends Node2D
 
 signal monster_is_full
 signal monster_is_hungry
+signal monster_got_hungrier
 
 
 export var maxHunger = 100
@@ -32,7 +33,8 @@ func _process(_delta):
 	
 func _on_DecreaseHunger_timeout():
 	print("Monter just Got Hungrier")
-	LowerHunger(decreasesByTime)
+	IncreaseHunger(decreasesByTime)
+	emit_signal("monster_got_hungrier")
 	
 ###################
 #HUNGER MANAGEMENT#
@@ -42,10 +44,10 @@ func ResetHunger():
 	currentHunger = initialHunger
 	decreasesByTime = baseDecreases
 	
-func LowerHunger(value):
+func DecreaseHunger(value):
 	currentHunger -= value
 	
-func GainHunger(value):
+func IncreaseHunger(value):
 	currentHunger += value
 	
 func IsSatisfied():
@@ -53,6 +55,9 @@ func IsSatisfied():
 	
 func IsStarving():
 	return currentHunger <= minHunger
+	
+func GetPercentageHunger():
+	return (currentHunger*100) / maxHunger
 
 
 

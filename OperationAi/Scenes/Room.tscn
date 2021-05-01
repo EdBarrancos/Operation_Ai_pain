@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Player/Scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://ArtAssets/Quarto_Base.png" type="Texture" id=2]
 [ext_resource path="res://icon.png" type="Texture" id=3]
 [ext_resource path="res://Scenes/Monster.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scripts/Room.gd" type="Script" id=5]
+[ext_resource path="res://Scripts/VignetteShader.gd" type="Script" id=6]
 
 [sub_resource type="Shader" id=1]
 code = "shader_type canvas_item;
@@ -53,13 +54,16 @@ position = Vector2( -1.69079, 168.017 )
 [node name="VignetteShader" type="Sprite" parent="CanvasLayer"]
 modulate = Color( 0, 0, 0, 0 )
 material = SubResource( 2 )
-position = Vector2( 148.776, 83.6835 )
+position = Vector2( 149.197, 83.2631 )
 scale = Vector2( 5, 2.64961 )
 texture = ExtResource( 3 )
+script = ExtResource( 6 )
+finalAlpha = 2.0
 
 [node name="Monster" parent="." instance=ExtResource( 4 )]
 initialHunger = 50
-waitingTime = 5
+waitingTime = 10
 
+[connection signal="monster_got_hungrier" from="Monster" to="." method="_on_Monster_monster_got_hungrier"]
 [connection signal="monster_is_full" from="Monster" to="." method="_on_Monster_monster_is_full"]
 [connection signal="monster_is_hungry" from="Monster" to="." method="_on_Monster_monster_is_hungry"]
