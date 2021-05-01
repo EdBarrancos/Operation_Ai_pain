@@ -5,14 +5,18 @@ onready var monster = $Monster
 onready var vignette = $CanvasLayer/VignetteShader
 
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
+func FeedMonster(value):
+	monster.IncreaseHunger(value)
 	vignette.SetAlpha(monster.GetPercentageHunger())
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+########
+#EVENTS#
+########
+
+
+func _ready():
+	vignette.SetAlpha(monster.GetPercentageHunger())
 
 
 func _on_Monster_monster_is_full():
