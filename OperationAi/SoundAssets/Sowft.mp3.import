@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Sowft.mp3-40bfe7c243fab33b0fc63d146c734ae2.mp3str"
+
+[deps]
+
+source_file="res://SoundAssets/Sowft.mp3"
+dest_files=[ "res://.import/Sowft.mp3-40bfe7c243fab33b0fc63d146c734ae2.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
