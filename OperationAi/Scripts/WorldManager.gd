@@ -2,6 +2,8 @@ extends Node2D
 
 onready var roomScene = load("res://Scenes/Room.tscn")
 onready var mainMenuScene = load("res://Scenes/Menus/MainMenu.tscn")
+onready var winningMenuScene = load("res://Scenes/Menus/WinningMenu.tscn")
+onready var losingMenuScene = load("res://Scenes/Menus/LosingMenu.tscn")
 
 
 # Called when the node enters the scene tree for the first time.
@@ -30,3 +32,9 @@ func SwitchToRoom(currentScene):
 	
 func SwitchToMainMenu(currentScene):
 	SwitchScene(currentScene, mainMenuScene)
+	
+func SwitchToWinningMenu(currentScene):
+	SwitchScene(currentScene, winningMenuScene)
+	
+func SwitchToLosingMenu(currentScene):
+	SwitchScene(currentScene, losingMenuScene)
