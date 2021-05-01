@@ -28,6 +28,7 @@ onready var left = "LEFT"
 
 func _physics_process(_delta):
 	GetInput()
+	NormalizeVelocity()
 	player.MovePlayer(velocity, UP)
 	
 func _ready():
@@ -69,30 +70,31 @@ func SetDirections(newDirVec):
 func GetInput():
 	if Input.is_action_pressed(left):
 		#Set Y Velocity To 0
-		ChangeVelocityY(0,0,false, false)
+		#ChangeVelocityY(0,0,false, false)
 		
 		#Set Velocity
 		SetVelocityInputX(-acel, decel, 1)
 	elif Input.is_action_pressed(right):
 		#Set Y Velocity To 0
-		ChangeVelocityY(0,0,false, false)
+		#ChangeVelocityY(0,0,false, false)
 		
 		#Set Velocity
 		SetVelocityInputX(acel, decel, -1)
-	elif Input.is_action_pressed(up):
+	else:
+		ChangeVelocityX(decel, 0, false, true)
+	if Input.is_action_pressed(up):
 		#Set X Velocity To 0
-		ChangeVelocityX(0,0,false, false)
+		#ChangeVelocityX(0,0,false, false)
 		
 		#Set Velocity
 		SetVelocityInputY(-acel, decel, 1)
 	elif Input.is_action_pressed(down):
 		#Set X Velocity To 0
-		ChangeVelocityX(0,0,false, false)
+		#ChangeVelocityX(0,0,false, false)
 		
 		#Set Velocity
 		SetVelocityInputY(acel, decel, -1)
 	else:
-		ChangeVelocityX(decel, 0, false, true)
 		ChangeVelocityY(decel, 0, false, true)
 
 
@@ -142,3 +144,8 @@ func ChangeVelocityY(value, maxVelocity=0, adding=true, gradual=false):
 		if maxVelocity: velocity.y = clamp(velocity.y, -maxVelocity, maxVelocity)
 	else: velocity.y = lerp(velocity.y, maxVelocity, value)
 	return velocity
+	
+
+func NormalizeVelocity():
+	if velocity.length() > maxVel:
+		velocity = velocity.normalized()*maxVel

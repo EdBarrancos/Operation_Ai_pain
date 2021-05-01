@@ -14,7 +14,7 @@ texture = ExtResource( 2 )
 position = Vector2( 50.0008, 51.149 )
 
 [node name="PlayerCamera2D" parent="." instance=ExtResource( 3 )]
-scale = Vector2( 0.538674, 0.0815217 )
+scale = Vector2( -0.60653, 0.753996 )
 playerPath = NodePath("../Player")
 upperLimit = 40
 lowerLimit = 322
