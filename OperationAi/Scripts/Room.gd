@@ -16,12 +16,13 @@ func _ready():
 
 
 func _on_Monster_monster_is_full():
-	#print("Monster is Full")
-	pass
+	print("Monster is Full")
+	get_parent().SwitchToWinningMenu(self)
 
 
 func _on_Monster_monster_is_hungry():
 	print("Monster is Hungry")
+	get_parent().SwitchToLosingMenu(self)
 
 
 func _on_Monster_monster_got_hungrier():

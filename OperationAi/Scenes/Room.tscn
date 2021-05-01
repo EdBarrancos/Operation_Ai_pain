@@ -62,7 +62,6 @@ finalAlpha = 2.0
 
 [node name="Monster" parent="." instance=ExtResource( 4 )]
 initialHunger = 50
-waitingTime = 10
 
 [connection signal="monster_got_hungrier" from="Monster" to="." method="_on_Monster_monster_got_hungrier"]
 [connection signal="monster_is_full" from="Monster" to="." method="_on_Monster_monster_is_full"]

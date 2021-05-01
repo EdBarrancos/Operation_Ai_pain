@@ -33,7 +33,7 @@ func _process(_delta):
 	
 func _on_DecreaseHunger_timeout():
 	print("Monter just Got Hungrier")
-	IncreaseHunger(decreasesByTime)
+	DecreaseHunger(decreasesByTime)
 	emit_signal("monster_got_hungrier")
 	
 ###################
@@ -57,7 +57,7 @@ func IsStarving():
 	return currentHunger <= minHunger
 	
 func GetPercentageHunger():
-	return (currentHunger*100) / maxHunger
+	return 100 - ((currentHunger*100) / maxHunger)
 
 
 
