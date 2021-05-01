@@ -15,6 +15,8 @@ var acel
 var maxVel
 var decel
 
+var movementLock = false
+
 #Directions
 onready var availableDirections = ["UP", "DOWN", "RIGHT", "LEFT"]
 onready var up = "UP"
@@ -27,8 +29,12 @@ onready var left = "LEFT"
 ##############
 
 func _physics_process(_delta):
-	GetInput()
-	NormalizeVelocity()
+	if not movementLock: 
+		GetInput()
+		NormalizeVelocity()
+	else:
+		ChangeVelocityX(decel, 0, false, true)
+		ChangeVelocityY(decel, 0, false, true)
 	player.MovePlayer(velocity, UP)
 	
 func _ready():
