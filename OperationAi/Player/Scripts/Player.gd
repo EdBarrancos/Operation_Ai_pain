@@ -6,11 +6,13 @@ onready var playerCollisonShape = $PlayerCollisionShape
 onready var playerSoupInventory = $SoupInventory
 
 #DEBUGS
-export var DEBUGMOVEMENT = false
+export var DMOVEMENT = false
+export var DINVETORY = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	playerMovement.Init(self, DEBUGMOVEMENT)
+	playerMovement.Init(self, DMOVEMENT)
+	playerSoupInventory.Init(self, DINVETORY)
 
 func _process(delta):
 	if Input.is_action_just_pressed("TEST"):

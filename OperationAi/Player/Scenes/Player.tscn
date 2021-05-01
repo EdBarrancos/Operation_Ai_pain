@@ -1,14 +1,16 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Player/ArtAssets/Character.png" type="Texture" id=1]
 [ext_resource path="res://Player/Scripts/PlayerMovement.gd" type="Script" id=2]
 [ext_resource path="res://Player/Scripts/Player.gd" type="Script" id=3]
+[ext_resource path="res://Player/Scripts/SoupInventory.gd" type="Script" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 6.95537, 10.0088 )
 
 [node name="Player" type="KinematicBody2D"]
 script = ExtResource( 3 )
+DINVETORY = true
 
 [node name="PlayerSprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )
@@ -20,3 +22,4 @@ script = ExtResource( 2 )
 shape = SubResource( 1 )
 
 [node name="SoupInventory" type="Node2D" parent="."]
+script = ExtResource( 4 )
