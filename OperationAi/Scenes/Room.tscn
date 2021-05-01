@@ -1,8 +1,31 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Player/Scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://ArtAssets/Quarto_Base.png" type="Texture" id=2]
-[ext_resource path="res://Player/Scenes/PlayerCamera2D.tscn" type="PackedScene" id=3]
+[ext_resource path="res://icon.png" type="Texture" id=3]
+
+[sub_resource type="Shader" id=1]
+code = "shader_type canvas_item;
+
+uniform float brightness = 1.0;
+uniform float contrast = 1.0;
+uniform float saturation = 1.0;
+
+void fragment() {
+    vec3 c = textureLod(SCREEN_TEXTURE, SCREEN_UV, 0.0).rgb;
+
+    c.rgb = mix(vec3(0.0), c.rgb, brightness);
+    c.rgb = mix(vec3(0.5), c.rgb, contrast);
+    c.rgb = mix(vec3(dot(vec3(1.0), c.rgb) * 0.33333), c.rgb, saturation);
+
+    COLOR.rgb = c;
+}"
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = SubResource( 1 )
+shader_param/brightness = 1.0
+shader_param/contrast = 1.0
+shader_param/saturation = 1.0
 
 [node name="Room" type="Node2D"]
 
@@ -11,12 +34,13 @@ position = Vector2( -1.3869, 169.117 )
 texture = ExtResource( 2 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 50.0008, 51.149 )
+position = Vector2( -1.69079, 168.017 )
 
-[node name="PlayerCamera2D" parent="." instance=ExtResource( 3 )]
-scale = Vector2( -0.60653, 0.753996 )
-playerPath = NodePath("../Player")
-upperLimit = 40
-lowerLimit = 322
-rightLimit = 275
-leftLimit = -275
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="VignetteShader" type="Sprite" parent="CanvasLayer"]
+modulate = Color( 1, 0.364706, 1, 1 )
+material = SubResource( 2 )
+position = Vector2( 149.424, 84.2687 )
+scale = Vector2( 4.71065, 2.65324 )
+texture = ExtResource( 3 )
