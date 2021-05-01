@@ -1,36 +1,48 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Player/Scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://ArtAssets/Quarto_Base.png" type="Texture" id=2]
 [ext_resource path="res://icon.png" type="Texture" id=3]
+[ext_resource path="res://Scenes/Monster.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scripts/Room.gd" type="Script" id=5]
 
 [sub_resource type="Shader" id=1]
 code = "shader_type canvas_item;
+render_mode unshaded; // will output the shader opaquely
 
-uniform float brightness = 1.0;
-uniform float contrast = 1.0;
-uniform float saturation = 1.0;
 
-void fragment() {
-    vec3 c = textureLod(SCREEN_TEXTURE, SCREEN_UV, 0.0).rgb;
+// BASIC VIGNETTE
 
-    c.rgb = mix(vec3(0.0), c.rgb, brightness);
-    c.rgb = mix(vec3(0.5), c.rgb, contrast);
-    c.rgb = mix(vec3(dot(vec3(1.0), c.rgb) * 0.33333), c.rgb, saturation);
+// resolution of the texture
+uniform vec2 resolution = vec2(300, 168);
 
-    COLOR.rgb = c;
+
+// fragment() runs on every pixel
+void fragment (){
+
+    // sample the texture
+    vec4 tex_color = texture(TEXTURE, UV);
+
+    // determine center of texture
+    vec2 position = (FRAGCOORD.xy / resolution.xy) - vec2(0.5, 0.5);
+
+    // determine length of current pixel to center of texture
+    float len = length(position);
+
+    // visualize length for debugging purposes
+    COLOR = vec4(1.0, vec3(len));
+
 }"
 
 [sub_resource type="ShaderMaterial" id=2]
 shader = SubResource( 1 )
-shader_param/brightness = 1.0
-shader_param/contrast = 1.0
-shader_param/saturation = 1.0
+shader_param/resolution = Vector2( 300, 168 )
 
 [node name="Room" type="Node2D"]
+script = ExtResource( 5 )
 
 [node name="Quarto_Base" type="Sprite" parent="."]
-position = Vector2( -1.3869, 169.117 )
+position = Vector2( -1.3869, 168.697 )
 texture = ExtResource( 2 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
@@ -39,8 +51,15 @@ position = Vector2( -1.69079, 168.017 )
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="VignetteShader" type="Sprite" parent="CanvasLayer"]
-modulate = Color( 1, 0.364706, 1, 1 )
+modulate = Color( 0, 0, 0, 0 )
 material = SubResource( 2 )
-position = Vector2( 149.424, 84.2687 )
-scale = Vector2( 4.71065, 2.65324 )
+position = Vector2( 148.776, 83.6835 )
+scale = Vector2( 5, 2.64961 )
 texture = ExtResource( 3 )
+
+[node name="Monster" parent="." instance=ExtResource( 4 )]
+initialHunger = 50
+waitingTime = 5
+
+[connection signal="monster_is_full" from="Monster" to="." method="_on_Monster_monster_is_full"]
+[connection signal="monster_is_hungry" from="Monster" to="." method="_on_Monster_monster_is_hungry"]
