@@ -126,6 +126,9 @@ func ResetBaseValues():
 	maxVel = BASE_MAX_VEL
 	decel = BASE_DECEL
 	
+func GetVelocityLength():
+	return velocity.length()
+	
 func ChangeVelocityX(value, maxVelocity=0, adding=true, gradual=false):
 	""" adding -> if you want to just set value or add it to current velocity
 		gradual -> will lerp the velocity to maxVelocity with weight value"""

@@ -5,6 +5,7 @@ onready var playerMovement = $PlayerMovement
 onready var playerCollisonShape = $PlayerCollisionShape
 onready var playerSoupInventory = $SoupInventory
 onready var playerCamera = $PlayerCamera2D
+onready var playerAnimtion = $PlayerAnimation
 
 #DEBUGS
 export var DMOVEMENT = false
@@ -24,6 +25,7 @@ func _ready():
 	playerSoupInventory.Init(self, DINVETORY)
 	playerCamera.Init(self, DCAMERA)
 	playerCamera.SetLimits(upperLimit, lowerLimit, leftLimit, rightLimit)
+	playerAnimtion.Init(self)
 
 func _process(_delta):
 	if Input.is_action_just_pressed("TEST"):
