@@ -5,12 +5,13 @@ onready var mainMenuScene = load("res://Scenes/Menus/MainMenu.tscn")
 onready var winningMenuScene = load("res://Scenes/Menus/WinningMenu.tscn")
 onready var losingMenuScene = load("res://Scenes/Menus/LosingMenu.tscn")
 
-
 onready var musicStream = $GameMusicLoop
+onready var audioServer = $AudioServer
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	audioServer.Init(self, musicStream, 0)
+	audioServer.ResetEffects()
 
 ########################
 #MAIN GENERAL FUNCTIONS#
@@ -33,6 +34,7 @@ func SwitchToRoom(currentScene):
 	SwitchScene(currentScene, roomScene)
 	
 func SwitchToMainMenu(currentScene):
+	audioServer.ResetEffects()
 	SwitchScene(currentScene, mainMenuScene)
 	
 func SwitchToWinningMenu(currentScene):

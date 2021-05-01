@@ -39,8 +39,10 @@ func SetCurrentEffect(nm):
 			effects[currentEffect].call_func(false)
 			currentEffect = nm
 			#print("Remove Effect")
-	
-
+			
+func ResetEffects():
+	for i in range(effects.size()):
+		effects[i].call_func(false)
 
 ###########
 #Low Level#

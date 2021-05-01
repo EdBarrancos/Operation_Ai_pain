@@ -59,7 +59,6 @@ finalAlpha = 3.0
 
 [node name="Monster" parent="." instance=ExtResource( 4 )]
 initialHunger = 99
-waitingTime = 3
 
 [node name="AudioServer" type="Node2D" parent="."]
 script = ExtResource( 7 )
