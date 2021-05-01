@@ -3,6 +3,8 @@ extends Node2D
 var player
 var DEBUG
 
+onready var availableSoups = {"RED_TOMATO": 0}
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -13,6 +15,10 @@ func Init(owner, debug):
 	DEBUG = debug
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func AddSoup(value=1, soupType="RED_TOMATO"):
+	availableSoups[soupType] += value
+	
+#Just For abstraction
+func LoseSoup(value=1, soupType="RED_TOMATO"):
+	availableSoups[soupType] -= value
+	
