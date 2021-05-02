@@ -87,6 +87,15 @@ script = ExtResource( 7 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
+[node name="VignetteShader" type="Sprite" parent="CanvasLayer"]
+modulate = Color( 0.223529, 0.0980392, 0.329412, 1 )
+material = SubResource( 2 )
+position = Vector2( 146.175, 84.6729 )
+scale = Vector2( 5, 2.64961 )
+texture = ExtResource( 3 )
+script = ExtResource( 6 )
+finalAlpha = 3.0
+
 [node name="HungerBar" parent="CanvasLayer" instance=ExtResource( 11 )]
 margin_left = 226.31
 margin_top = 7.63224
@@ -101,15 +110,6 @@ margin_left = -10.0
 margin_top = -155.674
 margin_right = -237.0
 margin_bottom = -133.674
-
-[node name="VignetteShader" type="Sprite" parent="CanvasLayer"]
-modulate = Color( 0.223529, 0.0980392, 0.329412, 1 )
-material = SubResource( 2 )
-position = Vector2( 146.175, 84.6729 )
-scale = Vector2( 5, 2.64961 )
-texture = ExtResource( 3 )
-script = ExtResource( 6 )
-finalAlpha = 3.0
 
 [connection signal="body_entered" from="YSort/SoupHandler/Soup" to="YSort/SoupHandler" method="_on_Soup_body_entered"]
 [connection signal="body_entered" from="YSort/SoupHandler/Soup2" to="YSort/SoupHandler" method="_on_Soup2_body_entered"]
