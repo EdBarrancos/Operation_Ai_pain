@@ -5,6 +5,7 @@ onready var mainMenuScene = load("res://Scenes/Menus/MainMenu.tscn")
 onready var winningMenuScene = load("res://Scenes/Menus/WinningMenu.tscn")
 onready var losingMenuScene = load("res://Scenes/Menus/LosingMenu.tscn")
 onready var soupCutsceneScene = load("res://Player/Scenes/SoupCutscene.tscn")
+onready var introCutsceneScene = load("res://Scenes/IntroCutscene.tscn")
 
 onready var musicStream = $GameMusicLoop
 onready var audioServer = $AudioServer
@@ -45,6 +46,9 @@ func SwitchToSoupCutscene(currentScene, playerPos, soupImage, dialogue, playerCu
 
 func SwitchToRoom(currentScene, toLoad=false):
 	SwitchScene(currentScene, roomScene).Init(playerPosition, toLoad, playerCurrentInv, currentHunger)
+	
+func SwitchToIntroCutscene(currentScene):
+	SwitchScene(currentScene, introCutsceneScene)
 	
 func SwitchToMainMenu(currentScene):
 	audioServer.ResetEffects()
