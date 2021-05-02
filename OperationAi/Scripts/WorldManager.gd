@@ -4,9 +4,11 @@ onready var roomScene = load("res://Scenes/Room.tscn")
 onready var mainMenuScene = load("res://Scenes/Menus/MainMenu.tscn")
 onready var winningMenuScene = load("res://Scenes/Menus/WinningMenu.tscn")
 onready var losingMenuScene = load("res://Scenes/Menus/LosingMenu.tscn")
+onready var soupCutsceneScene = load("res://Player/Scenes/SoupCutscene.tscn")
 
 onready var musicStream = $GameMusicLoop
 onready var audioServer = $AudioServer
+onready var playerPosition = Vector2(200, 90)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -20,18 +22,23 @@ func _ready():
 func SwitchScene(currentScene, newScene):
 	#Take out the currentScene
 	currentScene.queue_free()
-	AddSceneInstance(newScene)
+	return AddSceneInstance(newScene)
 	
 func AddSceneInstance(scene):
 	var sceneInstance = scene.instance()
 	add_child(sceneInstance)
+	return sceneInstance
 	
 ########################
 #SPECIFIC SCENE CHANGES#
 ########################
 
-func SwitchToRoom(currentScene):
+func SwitchToSoupCutscene(currentScene, playerPos):
 	SwitchScene(currentScene, roomScene)
+	playerPosition = playerPos
+
+func SwitchToRoom(currentScene):
+	SwitchScene(currentScene, roomScene).Init(playerPosition)
 	
 func SwitchToMainMenu(currentScene):
 	audioServer.ResetEffects()

@@ -1,4 +1,4 @@
-[gd_resource type="AudioBusLayout" load_steps=6 format=2]
+[gd_resource type="AudioBusLayout" load_steps=5 format=2]
 
 [sub_resource type="AudioEffectCompressor" id=1]
 resource_name = "Compressor"
@@ -11,9 +11,6 @@ resource_name = "Phaser"
 
 [sub_resource type="AudioEffectDelay" id=4]
 resource_name = "Delay"
-
-[sub_resource type="AudioEffectReverb" id=5]
-resource_name = "Reverb"
 
 [resource]
 bus/0/volume_db = -3.22095
@@ -31,5 +28,3 @@ bus/1/effect/2/effect = SubResource( 3 )
 bus/1/effect/2/enabled = false
 bus/1/effect/3/effect = SubResource( 4 )
 bus/1/effect/3/enabled = false
-bus/1/effect/4/effect = SubResource( 5 )
-bus/1/effect/4/enabled = false

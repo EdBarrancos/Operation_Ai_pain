@@ -12,6 +12,9 @@ func FeedMonster(value):
 	audioServer.SetCurrentEffect(monster.GetQuarterHunger())
 
 
+func Init(playerPos):
+	player.global_position = playerPos
+
 ########
 #EVENTS#
 ########

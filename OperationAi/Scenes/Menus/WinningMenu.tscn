@@ -1,10 +1,12 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://icon.png" type="Texture" id=1]
+[ext_resource path="res://Scenes/Menus/Cutscene/monster_happy1.png" type="Texture" id=1]
+[ext_resource path="res://Scripts/WinningMenu.gd" type="Script" id=2]
 
 [node name="WinningMenu" type="Node2D"]
+script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 148.819, 80.1638 )
-scale = Vector2( 1.7565, 1.7937 )
+position = Vector2( 150.084, 84.0503 )
+scale = Vector2( 0.37481, 0.373087 )
 texture = ExtResource( 1 )
