@@ -47,10 +47,10 @@ func ResetHunger():
 func SetHunger(value):
 	currentHunger = value
 	
-func DecreaseHunger(value):
+func DecreaseHunger(value=1):
 	currentHunger -= value
 	
-func IncreaseHunger(value):
+func IncreaseHunger(value=1):
 	currentHunger += value
 	
 func IsSatisfied():

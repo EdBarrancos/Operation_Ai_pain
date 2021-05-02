@@ -65,6 +65,8 @@ func _on_MonsterFeedingArea_body_entered(body):
 	#FEED MONSTER
 	if body == player:
 		var feedValue = player.FeedMonster()
+		if feedValue == null:
+			feedValue = 0
 		FeedMonster(feedValue)
 		if soupHandler.currentFound == 4:
 			#He collected all in the end

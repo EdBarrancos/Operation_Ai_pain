@@ -87,7 +87,7 @@ position = Vector2( -110.471, 62.8084 )
 [node name="Monster" parent="." instance=ExtResource( 4 )]
 initialHunger = 50
 baseDecreases = 5
-waitingTime = 2
+waitingTime = 3
 
 [node name="AudioServer" type="Node2D" parent="."]
 script = ExtResource( 7 )
