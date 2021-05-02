@@ -6,6 +6,7 @@ onready var winningMenuScene = load("res://Scenes/Menus/WinningMenu.tscn")
 onready var losingMenuScene = load("res://Scenes/Menus/LosingMenu.tscn")
 onready var soupCutsceneScene = load("res://Player/Scenes/SoupCutscene.tscn")
 onready var introCutsceneScene = load("res://Scenes/IntroCutscene.tscn")
+onready var childCutsceneScene = load("res://Scenes/ChildCutscene.tscn")
 
 onready var musicStream = $GameMusicLoop
 onready var audioServer = $AudioServer
@@ -59,3 +60,6 @@ func SwitchToWinningMenu(currentScene):
 	
 func SwitchToLosingMenu(currentScene):
 	SwitchScene(currentScene, losingMenuScene)
+
+func SwitchToChildCutscene(currentScene):
+	SwitchScene(currentScene, childCutsceneScene)

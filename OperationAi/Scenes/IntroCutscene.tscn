@@ -37,9 +37,7 @@ wait_time = 2.5
 autostart = true
 
 [node name="Mama" type="AudioStreamPlayer" parent="."]
-bus = "Voice"
 
 [node name="Child" type="AudioStreamPlayer" parent="."]
-bus = "Voice"
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

@@ -15,12 +15,15 @@ __meta__ = {
 }
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 37.3755, 30.0339 )
+position = Vector2( 151.694, 153.532 )
+scale = Vector2( 0.408347, 0.314107 )
 texture = ExtResource( 2 )
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
-margin_right = 40.0
-margin_bottom = 40.0
+margin_left = 6.0
+margin_top = 141.0
+margin_right = 298.0
+margin_bottom = 168.0
 __meta__ = {
 "_edit_use_anchors_": false
 }

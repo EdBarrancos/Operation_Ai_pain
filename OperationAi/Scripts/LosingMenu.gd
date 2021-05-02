@@ -17,6 +17,7 @@ export var cutsceneWaitingTime = 1
 func _ready():
 	cutsceneTimer.set_wait_time(cutsceneWaitingTime)
 	sprite.set_texture(cutsceneImages[currentImage])
+	get_parent().musicStream.stop()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
