@@ -14,13 +14,20 @@ func FeedMonster(value):
 	vignette.SetAlpha(monster.GetPercentageHunger())
 	#Update Sounds
 	audioServer.SetCurrentEffect(monster.GetQuarterHunger())
-	#Randomize Directions
-	player.playerMovement.SetDirections(player.playerMovement.GetRandomDirections())
+	
 
+func FoundCan(soupImage, dialogue):
+	player.playerSoupInventory.AddSoup()
+	player.playerMovement.SetDirections(player.playerMovement.GetRandomDirections())
+	soupHandler.save_game()
+	player.playerMovement.save_game()
+	get_parent().SwitchToSoupCutscene(self, player.global_position, soupImage, dialogue, player.playerSoupInventory.GetCurrentSoupQuantity(), monster.GetHunger())
 
 func Init(playerPos, toLoad, playerCurrentInv, hunger):
 	player.global_position = playerPos
 	soupHandler.Init(toLoad)
+	if toLoad:
+		player.playerMovement.load_game()
 	player.playerSoupInventory.SetCurrentSoupQuantity(playerCurrentInv)
 	if hunger:
 		monster.SetHunger(hunger)
@@ -36,10 +43,7 @@ func _ready():
 	vignette.SetAlpha(monster.GetPercentageHunger())
 	audioServer.Init(self, get_parent().musicStream, monster.GetQuarterHunger())
 
-func FoundCan(soupImage, dialogue):
-	player.playerSoupInventory.AddSoup()
-	soupHandler.save_game()
-	get_parent().SwitchToSoupCutscene(self, player.global_position, soupImage, dialogue, player.playerSoupInventory.GetCurrentSoupQuantity(), monster.GetHunger())
+
 
 
 func _on_Monster_monster_is_full():

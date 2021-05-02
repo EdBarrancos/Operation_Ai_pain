@@ -163,3 +163,31 @@ func NormalizeVelocity():
 #SAVE GAME STUFF#
 #################
 
+func save_dict():
+	var save_dict = {
+		"up": up,
+		"down": down,
+		"left": left,
+		"right": right
+	}
+	return save_dict
+	
+func save_game():
+	var save_game  = File.new()
+	save_game.open("user://playerKeys.save", File.WRITE)
+	save_game.store_line(to_json(save_dict()))
+	save_game.close()
+	
+func load_game():
+	var save_game = File.new()
+	if not save_game.file_exists("user://playerKeys.save"):
+		return
+	save_game.open("user://playerKeys.save", File.READ)
+	
+	var variable_data = parse_json(save_game.get_line())
+	
+	for i in variable_data:
+		set(i, variable_data[i])
+		
+	save_game.close()
+		
