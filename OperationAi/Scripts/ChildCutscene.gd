@@ -1,18 +1,23 @@
 extends Node2D
 
 onready var dialogueLines = [
-	"CHILD: The monster is real! I know it!",
-	"CHILD: I need to give him something to eat.",
-	"CHILD: ...Maybe the cans I got from Mommy’s bag today are food!",
-	"CHILD: Maybe I can give them to the monster!",
-	"CHILD: I was playing with them earlier.",
-	"CHILD: Where are they now?",
-	"CHILD: I need to get up and get them before the monster comes out!",
-
+	"CHILD: I can't sleep now!",
+	"MOTHER: It's your bedtime. No more playing",
+	"CHILD: I need food!",
+	"MOTHER: You already had dinner! Are you still hungry?",
+	"CHILD: The monster is hungry!",
+	"MOTHER: ...the monster?",
+	"CHILD: He's hungry! I can't sleep if he's hungry!",
+	"CHILD: He will eat me.",
+	"MOTHER: Honey, there's no monster...",
+	"CHILD: Yes, there IS! Under the bed!",
+	"MOTHER: Monsters aren't real, honey.",
+	"MOTHER: It's alright. You can go to sleep.",
+	"MOTHER: I promise you're safe"
 ]
 
-onready var label = $RichTextLabel
-onready var mamaAudio = $Mama
+onready var label = $label
+onready var childAudio = $Child
 
 onready var currentLine = 0
 
@@ -20,19 +25,17 @@ onready var currentLine = 0
 func _process(delta):
 	if Input.is_action_just_pressed("ui_cancel") or Input.is_action_just_pressed("ui_accept"):
 		get_parent().SwitchToRoom(self)
-
-func PlayMamaAudio():
-	pass
 	
 func PlayChildAudio():
-	pass
+	childAudio.play()
+	
+func StopAudios():
+	childAudio.stop()
 	
 func _ready():
+	StopAudios()
 	label.set_text(dialogueLines[currentLine])
-	if dialogueLines[currentLine][0] == "M":
-		PlayMamaAudio()
-	else:
-		PlayChildAudio()
+	PlayChildAudio()
 	currentLine += 1
 	UpdateLabel()
 	
@@ -42,14 +45,11 @@ func UpdateLabel():
 	label.get_font("normal_font").use_filter = false
 
 func _on_Timer_timeout():
+	StopAudios()
 	if currentLine + 1 > dialogueLines.size():
-		get_parent().SwitchToRoom(self)
+		get_parent().SwitchToChildCutscene(self)
 	else:
 		label.set_text(dialogueLines[currentLine])
-		if dialogueLines[currentLine][0] == "M":
-			PlayMamaAudio()
-		else:
-			PlayChildAudio()
+		PlayChildAudio()
 		currentLine += 1
 		UpdateLabel()
-		

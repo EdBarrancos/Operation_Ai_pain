@@ -1,7 +1,12 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scripts/ChildCutscene.gd" type="Script" id=1]
 [ext_resource path="res://ArtAssets/textbox.png" type="Texture" id=2]
+[ext_resource path="res://comici.ttf" type="DynamicFontData" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 10
+font_data = ExtResource( 3 )
 
 [node name="ChildCutscene" type="Node2D"]
 script = ExtResource( 1 )
@@ -19,16 +24,20 @@ position = Vector2( 151.694, 153.532 )
 scale = Vector2( 0.408347, 0.314107 )
 texture = ExtResource( 2 )
 
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
+[node name="label" type="RichTextLabel" parent="."]
 margin_left = 6.0
 margin_top = 141.0
 margin_right = 298.0
 margin_bottom = 168.0
+custom_fonts/normal_font = SubResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 2.5
+autostart = true
+
+[node name="Child" type="AudioStreamPlayer" parent="."]
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

@@ -25,7 +25,7 @@ onready var currentLine = 0
 
 func _process(delta):
 	if Input.is_action_just_pressed("ui_cancel") or Input.is_action_just_pressed("ui_accept"):
-		get_parent().SwitchToRoom(self)
+		get_parent().SwitchToChildCutscene(self)
 
 func PlayMamaAudio():
 	mamaAudio.play()
@@ -55,7 +55,7 @@ func UpdateLabel():
 func _on_Timer_timeout():
 	StopAudios()
 	if currentLine + 1 > dialogueLines.size():
-		get_parent().SwitchToRoom(self)
+		get_parent().SwitchToChildCutscene(self)
 	else:
 		label.set_text(dialogueLines[currentLine])
 		if dialogueLines[currentLine][0] == "M":
