@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Soup Counter Icon.png-f0961af15fcaf3fdd36efbcfa5c769f2.stex"
+path="res://.import/Quarto_withoutObject.png-579095bab15ebe0874ba66c9e0e76f9f.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ArtAssets/Soup Counter Icon.png"
-dest_files=[ "res://.import/Soup Counter Icon.png-f0961af15fcaf3fdd36efbcfa5c769f2.stex" ]
+source_file="res://ArtAssets/Quarto_withoutObject.png"
+dest_files=[ "res://.import/Quarto_withoutObject.png-579095bab15ebe0874ba66c9e0e76f9f.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
