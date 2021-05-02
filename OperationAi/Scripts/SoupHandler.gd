@@ -39,34 +39,36 @@ func UpdateSoups():
 func _on_Soup2_body_entered(body):
 	if not lock:
 		if availableSoups[1]:
-			availableSoups[1] = false
-			currentFound += 1
-			get_parent().get_parent().FoundCan(cutsceneImages[currentFound-1], dialogueLines[currentFound-1])
+			if get_parent().get_parent().player == body:
+				availableSoups[1] = false
+				currentFound += 1
+				get_parent().get_parent().FoundCan(cutsceneImages[currentFound-1], dialogueLines[currentFound-1])
 
 func _on_Soup_body_entered(body):
 	if not lock:
 		if availableSoups[0]:
-			print(lock)
-			print(availableSoups[0])
-			availableSoups[0] = false
-			currentFound += 1
-			get_parent().get_parent().FoundCan(cutsceneImages[currentFound-1], dialogueLines[currentFound-1])
+			if get_parent().get_parent().player == body:
+				availableSoups[0] = false
+				currentFound += 1
+				get_parent().get_parent().FoundCan(cutsceneImages[currentFound-1], dialogueLines[currentFound-1])
 
 
 func _on_Soup3_body_entered(body):
 	if not lock:
 		if availableSoups[2]:
-			availableSoups[2] = false
-			currentFound += 1
-			get_parent().get_parent().FoundCan(cutsceneImages[currentFound-1], dialogueLines[currentFound-1])
+			if get_parent().get_parent().player == body:
+				availableSoups[2] = false
+				currentFound += 1
+				get_parent().get_parent().FoundCan(cutsceneImages[currentFound-1], dialogueLines[currentFound-1])
 
 
 func _on_Soup4_body_entered(body):
 	if not lock:
 		if availableSoups[3]:
-			availableSoups[3] = false
-			currentFound += 1
-			get_parent().get_parent().FoundCan(cutsceneImages[currentFound-1], dialogueLines[currentFound-1])	
+			if get_parent().get_parent().player == body:
+				availableSoups[3] = false
+				currentFound += 1
+				get_parent().get_parent().FoundCan(cutsceneImages[currentFound-1], dialogueLines[currentFound-1])	
 
 func save_dict():
 	var save_dict = {
