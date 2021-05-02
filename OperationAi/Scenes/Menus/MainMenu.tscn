@@ -1,12 +1,79 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=14 format=2]
 
-[ext_resource path="res://icon.png" type="Texture" id=1]
+[ext_resource path="res://ArtAssets/Main menu 6.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/MainMenu.gd" type="Script" id=2]
+[ext_resource path="res://ArtAssets/Main menu 4.png" type="Texture" id=3]
+[ext_resource path="res://ArtAssets/Main menu 5.png" type="Texture" id=4]
+[ext_resource path="res://ArtAssets/Main menu 3.png" type="Texture" id=5]
+[ext_resource path="res://ArtAssets/Main menu 2.png" type="Texture" id=6]
+[ext_resource path="res://ArtAssets/Main menu 0.png" type="Texture" id=7]
+[ext_resource path="res://ArtAssets/Main menu 1.png" type="Texture" id=8]
+[ext_resource path="res://ArtAssets/Main menu 7.png" type="Texture" id=9]
+[ext_resource path="res://ArtAssets/Main menu 8.png" type="Texture" id=10]
+
+[sub_resource type="Animation" id=1]
+resource_name = "Back"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 10 ), ExtResource( 9 ), ExtResource( 1 ), ExtResource( 4 ), ExtResource( 3 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 8 ), ExtResource( 7 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "Load"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 7 ), ExtResource( 8 ), ExtResource( 6 ), ExtResource( 5 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 1 ), ExtResource( 9 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "Loop"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 9 ), ExtResource( 10 ) ]
+}
 
 [node name="MainMenu" type="Node2D"]
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 149.749, 78.9169 )
-scale = Vector2( 1.43406, 0.268307 )
-texture = ExtResource( 1 )
+position = Vector2( 150.122, 84.0655 )
+scale = Vector2( 0.37471, 0.372324 )
+texture = ExtResource( 7 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Back = SubResource( 1 )
+anims/Load = SubResource( 2 )
+anims/Loop = SubResource( 3 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

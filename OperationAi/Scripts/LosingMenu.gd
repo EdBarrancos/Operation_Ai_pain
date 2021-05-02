@@ -21,8 +21,8 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if Input.is_action_just_pressed("ui_cancel"):
-		get_parent().SwitchToRoom(self)
+	if Input.is_action_just_pressed("ui_cancel") or Input.is_action_just_pressed("ui_accept"):
+		get_parent().SwitchToMainMenu(self)
 
 
 func _on_CutsceneTimer_timeout():
