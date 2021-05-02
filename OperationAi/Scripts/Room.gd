@@ -8,9 +8,14 @@ onready var soupHandler = $YSort/SoupHandler
 
 
 func FeedMonster(value):
+	#Increase Hunger
 	monster.IncreaseHunger(value)
+	#Update Shader
 	vignette.SetAlpha(monster.GetPercentageHunger())
+	#Update Sounds
 	audioServer.SetCurrentEffect(monster.GetQuarterHunger())
+	#Randomize Directions
+	player.playerMovement.SetDirections(player.playerMovement.GetRandomDirections())
 
 
 func Init(playerPos, toLoad, playerCurrentInv, hunger):
@@ -50,3 +55,13 @@ func _on_Monster_monster_is_hungry():
 func _on_Monster_monster_got_hungrier():
 	vignette.SetAlpha(monster.GetPercentageHunger())
 	audioServer.SetCurrentEffect(monster.GetQuarterHunger())
+
+
+func _on_MonsterFeedingArea_body_entered(body):
+	#FEED MONSTER
+	if body == player:
+		var feedValue = player.FeedMonster()
+		FeedMonster(feedValue)
+		if soupHandler.currentFound == 4:
+			#He collected all in the end
+			_on_Monster_monster_is_full()

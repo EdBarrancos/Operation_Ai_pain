@@ -85,7 +85,9 @@ position = Vector2( -250.788, 246.779 )
 position = Vector2( -110.471, 62.8084 )
 
 [node name="Monster" parent="." instance=ExtResource( 4 )]
-initialHunger = 99
+initialHunger = 50
+baseDecreases = 5
+waitingTime = 2
 
 [node name="AudioServer" type="Node2D" parent="."]
 script = ExtResource( 7 )
@@ -93,7 +95,6 @@ script = ExtResource( 7 )
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="VignetteShader" type="Sprite" parent="CanvasLayer"]
-visible = false
 modulate = Color( 0.223529, 0.0980392, 0.329412, 1 )
 material = SubResource( 2 )
 position = Vector2( 146.175, 84.6729 )
@@ -147,3 +148,4 @@ polygon = PoolVector2Array( 271.602, 314.386, 296.409, 314.807, 298.931, 15.4476
 [connection signal="monster_got_hungrier" from="Monster" to="." method="_on_Monster_monster_got_hungrier"]
 [connection signal="monster_is_full" from="Monster" to="." method="_on_Monster_monster_is_full"]
 [connection signal="monster_is_hungry" from="Monster" to="." method="_on_Monster_monster_is_hungry"]
+[connection signal="body_entered" from="MonsterFeedingArea" to="." method="_on_MonsterFeedingArea_body_entered"]

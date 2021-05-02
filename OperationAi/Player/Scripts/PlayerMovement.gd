@@ -158,3 +158,8 @@ func ChangeVelocityY(value, maxVelocity=0, adding=true, gradual=false):
 func NormalizeVelocity():
 	if velocity.length() > maxVel:
 		velocity = velocity.normalized()*maxVel
+		
+#################
+#SAVE GAME STUFF#
+#################
+

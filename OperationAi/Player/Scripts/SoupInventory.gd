@@ -50,6 +50,7 @@ func SwitchCurrentSoup(newSoup):
 	
 func FeedMonster():
 	if canFeed and HasCurrentSoupInInventory():
-		LoseSoup()
-		player.FeedMonster(foodValueSoups[currentSoup])
+		var feedValue = GetCurrentSoupQuantity()*foodValueSoups[currentSoup]
+		LoseSoup(GetCurrentSoupQuantity())
+		return feedValue
 	

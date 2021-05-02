@@ -34,6 +34,6 @@ func _process(_delta):
 func MovePlayer(velocity, up):
 	move_and_slide(velocity, up)
 	
-func FeedMonster(feedValue):
-	get_parent().get_parent().FeedMonster(feedValue)
+func FeedMonster():
+	return playerSoupInventory.FeedMonster()
 	
