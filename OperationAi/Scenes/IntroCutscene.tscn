@@ -4,8 +4,8 @@
 [ext_resource path="res://comici.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://ArtAssets/textbox.png" type="Texture" id=3]
 [ext_resource path="res://Scripts/IntroCutscene.gd" type="Script" id=4]
-[ext_resource path="res://SoundAssets/Mother_modified.mp3" type="AudioStream" id=5]
-[ext_resource path="res://SoundAssets/Child_modified.mp3" type="AudioStream" id=6]
+[ext_resource path="res://SoundAssets/Child.mp3" type="AudioStream" id=5]
+[ext_resource path="res://SoundAssets/mother.mp3" type="AudioStream" id=6]
 
 [sub_resource type="DynamicFont" id=1]
 size = 10
@@ -39,11 +39,13 @@ wait_time = 2.5
 autostart = true
 
 [node name="Mama" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 5 )
+stream = ExtResource( 6 )
+volume_db = 24.0
 bus = "Voice"
 
 [node name="Child" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 6 )
+stream = ExtResource( 5 )
+volume_db = 24.0
 bus = "Voice"
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

@@ -1,19 +1,15 @@
 extends Node2D
 
+
 onready var dialogueLines = [
-	"CHILD: I can't sleep now!",
-	"MOTHER: It's your bedtime. No more playing",
-	"CHILD: I need food!",
-	"MOTHER: You already had dinner! Are you still hungry?",
-	"CHILD: The monster is hungry!",
-	"MOTHER: ...the monster?",
-	"CHILD: He's hungry! I can't sleep if he's hungry!",
-	"CHILD: He will eat me.",
-	"MOTHER: Honey, there's no monster...",
-	"CHILD: Yes, there IS! Under the bed!",
-	"MOTHER: Monsters aren't real, honey.",
-	"MOTHER: It's alright. You can go to sleep.",
-	"MOTHER: I promise you're safe"
+	"CHILD: The monster is real! I know it!",
+	"CHILD: I need to give him something to eat.",
+	"CHILD: ...Maybe the cans I got from Mommy’s bag today are food!",
+	"CHILD: Maybe I can give them to the monster!",
+	"CHILD: I was playing with them earlier.",
+	"CHILD: Where are they now?",
+	"CHILD: I need to get up and get them before the monster comes out!",
+
 ]
 
 onready var label = $label

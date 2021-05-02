@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Child.mp3-08b97160e25034b768fc8faf551cbe44.mp3str"
+
+[deps]
+
+source_file="res://SoundAssets/Child.mp3"
+dest_files=[ "res://.import/Child.mp3-08b97160e25034b768fc8faf551cbe44.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
