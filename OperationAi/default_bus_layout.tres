@@ -1,4 +1,4 @@
-[gd_resource type="AudioBusLayout" load_steps=5 format=2]
+[gd_resource type="AudioBusLayout" load_steps=6 format=2]
 
 [sub_resource type="AudioEffectCompressor" id=1]
 resource_name = "Compressor"
@@ -12,13 +12,16 @@ resource_name = "Phaser"
 [sub_resource type="AudioEffectDelay" id=4]
 resource_name = "Delay"
 
+[sub_resource type="AudioEffectStereoEnhance" id=5]
+resource_name = "StereoEnhance"
+
 [resource]
 bus/0/volume_db = -3.22095
 bus/1/name = "Music"
 bus/1/solo = false
 bus/1/mute = false
 bus/1/bypass_fx = false
-bus/1/volume_db = -4.55669
+bus/1/volume_db = -10.6523
 bus/1/send = "Master"
 bus/1/effect/0/effect = SubResource( 1 )
 bus/1/effect/0/enabled = true
@@ -28,3 +31,17 @@ bus/1/effect/2/effect = SubResource( 3 )
 bus/1/effect/2/enabled = false
 bus/1/effect/3/effect = SubResource( 4 )
 bus/1/effect/3/enabled = false
+bus/2/name = "SoundEffects"
+bus/2/solo = false
+bus/2/mute = false
+bus/2/bypass_fx = false
+bus/2/volume_db = -5.91678
+bus/2/send = "Master"
+bus/3/name = "Growl"
+bus/3/solo = false
+bus/3/mute = false
+bus/3/bypass_fx = false
+bus/3/volume_db = 2.44258
+bus/3/send = "SoundEffects"
+bus/3/effect/0/effect = SubResource( 5 )
+bus/3/effect/0/enabled = true

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/defeat_ending_growl.mp3-1c19423e659179c23cd16d1d2cdcde4d.mp3str"
+
+[deps]
+
+source_file="res://SoundAssets/defeat_ending_growl.mp3"
+dest_files=[ "res://.import/defeat_ending_growl.mp3-1c19423e659179c23cd16d1d2cdcde4d.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

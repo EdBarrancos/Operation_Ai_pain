@@ -8,6 +8,7 @@ preload("res://Scenes/Menus/Cutscene/monster_hungry5.png")]
 
 onready var sprite = $Sprite
 onready var cutsceneTimer = $CutsceneTimer
+onready var growl = $Growl
 onready var currentImage = 0
 
 export var cutsceneWaitingTime = 1
@@ -28,4 +29,6 @@ func _on_CutsceneTimer_timeout():
 		get_parent().SwitchToMainMenu(self)
 	else:
 		currentImage+=1
+		if currentImage + 1 >= cutsceneImages.size():
+			growl.play()
 		sprite.texture = cutsceneImages[currentImage]
