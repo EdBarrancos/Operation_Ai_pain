@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://Player/Scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://ArtAssets/Quarto_withoutObject.png" type="Texture" id=2]
@@ -15,6 +15,7 @@
 [ext_resource path="res://ArtAssets/Lata 2.png" type="Texture" id=13]
 [ext_resource path="res://ArtAssets/Lata 1.png" type="Texture" id=14]
 [ext_resource path="res://ArtAssets/Lata 4.png" type="Texture" id=15]
+[ext_resource path="res://ArtAssets/box_transparent.png" type="Texture" id=16]
 
 [sub_resource type="Shader" id=1]
 code = "shader_type canvas_item;
@@ -61,17 +62,65 @@ position = Vector2( -1.69079, 168.017 )
 upperLimit = 25
 lowerLimit = 330
 
-[node name="Boxes" type="Node2D" parent="YSort"]
+[node name="Box" type="StaticBody2D" parent="YSort"]
+position = Vector2( 110.96, 182.262 )
 
-[node name="Bed" type="StaticBody2D" parent="YSort/Boxes"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/Box"]
+position = Vector2( -111.046, -181.556 )
+polygon = PoolVector2Array( 91.8931, 180.067, 91.7445, 170.479, 102.893, 181.628, 112.145, 181.875, 131.583, 181.108, 131.806, 188.763, 104.157, 191.439 )
 
-[node name="Bed" type="CollisionPolygon2D" parent="YSort/Boxes/Bed"]
+[node name="Box" type="Sprite" parent="YSort/Box"]
+position = Vector2( 0.69252, -12.8702 )
+texture = ExtResource( 16 )
+
+[node name="Bed" type="StaticBody2D" parent="YSort"]
+
+[node name="Bed" type="CollisionPolygon2D" parent="YSort/Bed"]
 polygon = PoolVector2Array( 220.969, 45.4622, 222.856, 119.084, 269.106, 117.668, 269.578, 43.1026 )
 
-[node name="Box" type="StaticBody2D" parent="YSort/Boxes"]
+[node name="Box3" type="StaticBody2D" parent="YSort"]
+position = Vector2( -26.9244, 231.607 )
+__meta__ = {
+"_edit_group_": true
+}
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/Boxes/Box"]
-polygon = PoolVector2Array( 91.4464, 180.538, 101.458, 191.216, 132.159, 189.882, 131.158, 165.855, 105.462, 165.855, 91.4464, 156.511 )
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/Box3"]
+position = Vector2( -110.718, -178.456 )
+polygon = PoolVector2Array( 91.4464, 180.538, 101.458, 191.216, 132.159, 189.882, 132.615, 177.766, 102.915, 180.102, 90.901, 169.757 )
+
+[node name="Box" type="Sprite" parent="YSort/Box3"]
+position = Vector2( 0.453491, -9.93481 )
+texture = ExtResource( 16 )
+
+[node name="Box2" type="StaticBody2D" parent="YSort"]
+position = Vector2( -72.7212, 74.127 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/Box2"]
+position = Vector2( -110.702, -185.645 )
+polygon = PoolVector2Array( 90.506, 192.429, 117.703, 195.6, 131.719, 182.418, 131.552, 171.572, 116.869, 183.92, 90.8397, 184.42 )
+
+[node name="Box" type="Sprite" parent="YSort/Box2"]
+position = Vector2( -0.620697, -13.9948 )
+texture = ExtResource( 16 )
+flip_h = true
+
+[node name="Box4" type="StaticBody2D" parent="YSort"]
+position = Vector2( 245.486, 257.822 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/Box4"]
+position = Vector2( -112.314, -189.505 )
+polygon = PoolVector2Array( 90.506, 192.429, 117.703, 195.6, 131.719, 182.418, 131.552, 171.572, 116.869, 183.92, 116.849, 183.967, 90.8397, 184.42 )
+
+[node name="Box" type="Sprite" parent="YSort/Box4"]
+position = Vector2( -1.77805, -16.9389 )
+texture = ExtResource( 16 )
+flip_h = true
 
 [node name="SoupHandler" type="Node2D" parent="YSort"]
 script = ExtResource( 9 )
@@ -103,6 +152,7 @@ script = ExtResource( 7 )
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="VignetteShader" type="Sprite" parent="CanvasLayer"]
+visible = false
 modulate = Color( 0.223529, 0.0980392, 0.329412, 1 )
 material = SubResource( 2 )
 position = Vector2( 146.175, 84.6729 )
@@ -138,6 +188,7 @@ __meta__ = {
 [node name="Walls" type="StaticBody2D" parent="."]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls"]
+position = Vector2( -1.5874, 1.52588e-05 )
 polygon = PoolVector2Array( -271.064, 19.0391, -270.223, 59.4021, 270.473, 60.6635, 270.894, 18.1982 )
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Walls"]
