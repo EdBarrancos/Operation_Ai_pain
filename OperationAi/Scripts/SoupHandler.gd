@@ -8,7 +8,7 @@ preload("res://Scenes/Cutscene/soup4.png")]
 onready var dialogueLines = ["I found one! I don't know if it tastes, but I hope he likes it",
 "Another one! Is it the same as the other? That's weird.",
 "One more! I hope he doesn't mind eating a lot of the same thing...",
-"The last one! That should be enough to feed him! I'll take these to him under the bed..."]
+"The last one! I'll take these to him under the bed..."]
 
 onready var soups = [$Soup, $Soup2, $Soup3, $Soup4]
 onready var lock = true
