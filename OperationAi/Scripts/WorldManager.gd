@@ -52,6 +52,7 @@ func SwitchToIntroCutscene(currentScene):
 	
 func SwitchToMainMenu(currentScene):
 	audioServer.ResetEffects()
+	musicStream.play()
 	SwitchScene(currentScene, mainMenuScene)
 	
 func SwitchToWinningMenu(currentScene):

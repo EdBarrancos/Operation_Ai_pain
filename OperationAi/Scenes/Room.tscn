@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://Player/Scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://ArtAssets/Quarto_withoutObject.png" type="Texture" id=2]
@@ -16,6 +16,7 @@
 [ext_resource path="res://ArtAssets/Lata 1.png" type="Texture" id=14]
 [ext_resource path="res://ArtAssets/Lata 4.png" type="Texture" id=15]
 [ext_resource path="res://ArtAssets/box_transparent.png" type="Texture" id=16]
+[ext_resource path="res://ArtAssets/car_transparent.png" type="Texture" id=17]
 
 [sub_resource type="Shader" id=1]
 code = "shader_type canvas_item;
@@ -64,6 +65,9 @@ lowerLimit = 330
 
 [node name="Box" type="StaticBody2D" parent="YSort"]
 position = Vector2( 110.96, 182.262 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/Box"]
 position = Vector2( -111.046, -181.556 )
@@ -74,9 +78,12 @@ position = Vector2( 0.69252, -12.8702 )
 texture = ExtResource( 16 )
 
 [node name="Bed" type="StaticBody2D" parent="YSort"]
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="Bed" type="CollisionPolygon2D" parent="YSort/Bed"]
-polygon = PoolVector2Array( 220.969, 45.4622, 222.856, 119.084, 269.106, 117.668, 269.578, 43.1026 )
+polygon = PoolVector2Array( 220.615, 63.7344, 222.856, 119.084, 269.106, 117.668, 267.197, 63.1732 )
 
 [node name="Box3" type="StaticBody2D" parent="YSort"]
 position = Vector2( -26.9244, 231.607 )
@@ -141,6 +148,81 @@ newSpriteTexture = ExtResource( 12 )
 position = Vector2( -110.471, 62.8084 )
 newSpriteTexture = ExtResource( 15 )
 
+[node name="Car" type="StaticBody2D" parent="YSort"]
+position = Vector2( 97.8811, 96.382 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/Car"]
+polygon = PoolVector2Array( -10.0118, 2.41192, -10.0118, -0.116478, 9.55984, -0.865631, 8.90434, 3.06743, -8.1389, 4.47209 )
+
+[node name="Sprite" type="Sprite" parent="YSort/Car"]
+texture = ExtResource( 17 )
+
+[node name="Car3" type="StaticBody2D" parent="YSort"]
+position = Vector2( 154.642, 280.538 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/Car3"]
+polygon = PoolVector2Array( -10.0118, 2.41192, -10.0118, -0.116478, 9.55984, -0.865631, 8.90434, 3.06743, -8.1389, 4.47209 )
+
+[node name="Sprite" type="Sprite" parent="YSort/Car3"]
+texture = ExtResource( 17 )
+
+[node name="Car4" type="StaticBody2D" parent="YSort"]
+position = Vector2( -76.6049, 168.279 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/Car4"]
+polygon = PoolVector2Array( -10.0118, 2.41192, -10.0118, -0.116478, 9.55984, -0.865631, 8.90434, 3.06743, -8.1389, 4.47209 )
+
+[node name="Sprite" type="Sprite" parent="YSort/Car4"]
+texture = ExtResource( 17 )
+
+[node name="Car2" type="StaticBody2D" parent="YSort"]
+position = Vector2( 203.717, 185.338 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/Car2"]
+polygon = PoolVector2Array( -10.0118, 2.41192, -10.0118, -0.116478, 9.55984, -0.865631, 8.90434, 3.06743, -8.1389, 4.47209 )
+
+[node name="Sprite" type="Sprite" parent="YSort/Car2"]
+texture = ExtResource( 17 )
+flip_h = true
+
+[node name="Car5" type="StaticBody2D" parent="YSort"]
+position = Vector2( -75.6656, 282.963 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/Car5"]
+polygon = PoolVector2Array( -10.0118, 2.41192, -10.0118, -0.116478, 9.55984, -0.865631, 8.90434, 3.06743, -8.1389, 4.47209 )
+
+[node name="Sprite" type="Sprite" parent="YSort/Car5"]
+texture = ExtResource( 17 )
+flip_h = true
+
+[node name="Car6" type="StaticBody2D" parent="YSort"]
+position = Vector2( -202.145, 157.899 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/Car6"]
+polygon = PoolVector2Array( -10.0118, 2.41192, -10.0118, -0.116478, 9.55984, -0.865631, 8.90434, 3.06743, -8.1389, 4.47209 )
+
+[node name="Sprite" type="Sprite" parent="YSort/Car6"]
+texture = ExtResource( 17 )
+flip_h = true
+
 [node name="Monster" parent="." instance=ExtResource( 4 )]
 initialHunger = 50
 baseDecreases = 5
@@ -188,7 +270,7 @@ __meta__ = {
 [node name="Walls" type="StaticBody2D" parent="."]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls"]
-position = Vector2( -1.5874, 1.52588e-05 )
+position = Vector2( -1.87628, 0.710892 )
 polygon = PoolVector2Array( -271.064, 19.0391, -270.223, 59.4021, 270.473, 60.6635, 270.894, 18.1982 )
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Walls"]
