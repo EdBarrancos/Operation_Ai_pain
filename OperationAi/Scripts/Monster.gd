@@ -44,6 +44,9 @@ func ResetHunger():
 	currentHunger = initialHunger
 	decreasesByTime = baseDecreases
 	
+func SetHunger(value):
+	currentHunger = value
+	
 func DecreaseHunger(value):
 	currentHunger -= value
 	
@@ -55,6 +58,9 @@ func IsSatisfied():
 	
 func IsStarving():
 	return currentHunger <= minHunger
+	
+func GetHunger():
+	return currentHunger
 	
 func GetPercentageHunger():
 	return 100 - ((currentHunger*100) / maxHunger)

@@ -42,6 +42,9 @@ func GetCurrentSoupName():
 func GetCurrentSoupQuantity():
 	return availableSoups[currentSoup]
 	
+func SetCurrentSoupQuantity(value):
+	availableSoups[currentSoup] = value
+	
 func SwitchCurrentSoup(newSoup):
 	currentSoup = newSoup
 	

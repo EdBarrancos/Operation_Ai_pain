@@ -8,7 +8,7 @@
 [ext_resource path="res://Player/Scripts/PlayerCamera2D.gd" type="Script" id=6]
 [ext_resource path="res://Player/Scripts/PlayerAnimation.gd" type="Script" id=7]
 
-[sub_resource type="CapsuleShape2D" id=3]
+[sub_resource type="CapsuleShape2D" id=1]
 radius = 5.1811
 height = 0.0
 
@@ -41,7 +41,7 @@ script = ExtResource( 2 )
 
 [node name="PlayerCollisionShape" type="CollisionShape2D" parent="."]
 position = Vector2( -3.8147e-06, 7.24784 )
-shape = SubResource( 3 )
+shape = SubResource( 1 )
 
 [node name="SoupInventory" type="Node2D" parent="."]
 script = ExtResource( 4 )

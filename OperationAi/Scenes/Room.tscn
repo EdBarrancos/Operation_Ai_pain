@@ -7,6 +7,8 @@
 [ext_resource path="res://Scripts/Room.gd" type="Script" id=5]
 [ext_resource path="res://Scripts/VignetteShader.gd" type="Script" id=6]
 [ext_resource path="res://Scripts/AudioServer.gd" type="Script" id=7]
+[ext_resource path="res://Scenes/Soup.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scripts/SoupHandler.gd" type="Script" id=9]
 [ext_resource path="res://Scenes/GUI.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Scenes/HungerBar.tscn" type="PackedScene" id=9]
 
@@ -45,8 +47,43 @@ script = ExtResource( 5 )
 position = Vector2( -1.0607, 168.045 )
 texture = ExtResource( 2 )
 
-[node name="Player" parent="." instance=ExtResource( 1 )]
+[node name="YSort" type="YSort" parent="."]
+
+[node name="Player" parent="YSort" instance=ExtResource( 1 )]
 position = Vector2( -1.69079, 168.017 )
+
+[node name="Boxes" type="Node2D" parent="YSort"]
+
+[node name="Bed" type="StaticBody2D" parent="YSort/Boxes"]
+
+[node name="Bed" type="CollisionPolygon2D" parent="YSort/Boxes/Bed"]
+polygon = PoolVector2Array( 220.969, 45.4622, 222.856, 119.084, 269.106, 117.668, 269.578, 43.1026 )
+
+[node name="Box" type="StaticBody2D" parent="YSort/Boxes"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/Boxes/Box"]
+polygon = PoolVector2Array( 91.4464, 180.538, 101.458, 191.216, 132.159, 189.882, 131.158, 165.855, 105.462, 165.855, 91.4464, 156.511 )
+
+[node name="SoupHandler" type="Node2D" parent="YSort"]
+script = ExtResource( 9 )
+
+[node name="Soup" parent="YSort/SoupHandler" instance=ExtResource( 8 )]
+position = Vector2( -107.799, 61.9175 )
+
+[node name="Soup2" parent="YSort/SoupHandler" instance=ExtResource( 8 )]
+position = Vector2( 248.719, 276.438 )
+
+[node name="Soup3" parent="YSort/SoupHandler" instance=ExtResource( 8 )]
+position = Vector2( -16.8369, 292.401 )
+
+[node name="Soup4" parent="YSort/SoupHandler" instance=ExtResource( 8 )]
+position = Vector2( -253.82, 261.404 )
+
+[node name="Monster" parent="." instance=ExtResource( 4 )]
+initialHunger = 99
+
+[node name="AudioServer" type="Node2D" parent="."]
+script = ExtResource( 7 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -74,12 +111,10 @@ texture = ExtResource( 3 )
 script = ExtResource( 6 )
 finalAlpha = 3.0
 
-[node name="Monster" parent="." instance=ExtResource( 4 )]
-initialHunger = 99
-
-[node name="AudioServer" type="Node2D" parent="."]
-script = ExtResource( 7 )
-
+[connection signal="body_entered" from="YSort/SoupHandler/Soup" to="YSort/SoupHandler" method="_on_Soup_body_entered"]
+[connection signal="body_entered" from="YSort/SoupHandler/Soup2" to="YSort/SoupHandler" method="_on_Soup2_body_entered"]
+[connection signal="body_entered" from="YSort/SoupHandler/Soup3" to="YSort/SoupHandler" method="_on_Soup3_body_entered"]
+[connection signal="body_entered" from="YSort/SoupHandler/Soup4" to="YSort/SoupHandler" method="_on_Soup4_body_entered"]
 [connection signal="monster_got_hungrier" from="Monster" to="." method="_on_Monster_monster_got_hungrier"]
 [connection signal="monster_is_full" from="Monster" to="." method="_on_Monster_monster_is_full"]
 [connection signal="monster_is_hungry" from="Monster" to="." method="_on_Monster_monster_is_hungry"]

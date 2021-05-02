@@ -9,6 +9,9 @@ onready var soupCutsceneScene = load("res://Player/Scenes/SoupCutscene.tscn")
 onready var musicStream = $GameMusicLoop
 onready var audioServer = $AudioServer
 onready var playerPosition = Vector2(200, 90)
+onready var currentFound = 0
+onready var playerCurrentInv = 0
+onready var currentHunger = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -33,12 +36,15 @@ func AddSceneInstance(scene):
 #SPECIFIC SCENE CHANGES#
 ########################
 
-func SwitchToSoupCutscene(currentScene, playerPos):
-	SwitchScene(currentScene, roomScene)
+func SwitchToSoupCutscene(currentScene, playerPos, soupImage, dialogue, playerCurrentInv_, currentHunger_):
+	SwitchScene(currentScene, soupCutsceneScene).Init(soupImage, dialogue)
 	playerPosition = playerPos
+	currentFound += 1
+	playerCurrentInv = playerCurrentInv_
+	currentHunger = currentHunger_
 
-func SwitchToRoom(currentScene):
-	SwitchScene(currentScene, roomScene).Init(playerPosition)
+func SwitchToRoom(currentScene, toLoad=false):
+	SwitchScene(currentScene, roomScene).Init(playerPosition, toLoad, playerCurrentInv, currentHunger)
 	
 func SwitchToMainMenu(currentScene):
 	audioServer.ResetEffects()
