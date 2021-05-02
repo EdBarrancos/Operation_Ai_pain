@@ -18,6 +18,7 @@ onready var dialogueLines = [
 
 onready var label = $RichTextLabel
 onready var mamaAudio = $Mama
+onready var childAudio = $Child
 
 onready var currentLine = 0
 
@@ -27,12 +28,17 @@ func _process(delta):
 		get_parent().SwitchToRoom(self)
 
 func PlayMamaAudio():
-	pass
+	mamaAudio.play()
 	
 func PlayChildAudio():
-	pass
+	childAudio.play()
+	
+func StopAudios():
+	mamaAudio.stop()
+	childAudio.stop()
 	
 func _ready():
+	StopAudios()
 	label.set_text(dialogueLines[currentLine])
 	if dialogueLines[currentLine][0] == "M":
 		PlayMamaAudio()
@@ -47,6 +53,7 @@ func UpdateLabel():
 	label.get_font("normal_font").use_filter = false
 
 func _on_Timer_timeout():
+	StopAudios()
 	if currentLine + 1 > dialogueLines.size():
 		get_parent().SwitchToRoom(self)
 	else:

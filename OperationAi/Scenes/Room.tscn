@@ -234,7 +234,6 @@ script = ExtResource( 7 )
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="VignetteShader" type="Sprite" parent="CanvasLayer"]
-visible = false
 modulate = Color( 0.223529, 0.0980392, 0.329412, 1 )
 material = SubResource( 2 )
 position = Vector2( 146.175, 84.6729 )

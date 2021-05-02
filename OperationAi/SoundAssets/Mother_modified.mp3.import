@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Mother_modified.mp3-3939c0934fa6c911a273eef5aeb34aed.mp3str"
+
+[deps]
+
+source_file="res://SoundAssets/Mother_modified.mp3"
+dest_files=[ "res://.import/Mother_modified.mp3-3939c0934fa6c911a273eef5aeb34aed.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
