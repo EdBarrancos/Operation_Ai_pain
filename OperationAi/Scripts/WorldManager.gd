@@ -10,15 +10,20 @@ onready var childCutsceneScene = load("res://Scenes/ChildCutscene.tscn")
 
 onready var musicStream = $GameMusicLoop
 onready var audioServer = $AudioServer
-onready var playerPosition = Vector2(200, 90)
-onready var currentFound = 0
-onready var playerCurrentInv = 0
-onready var currentHunger = false
+onready var BASE_PLAYER_POSITION = Vector2(200,90)
+onready var BASE_CURRENT_FOUND = 0
+onready var BASE_PLAYER_CURRENT_INV = 0
+onready var BASE_CURRENT_HUNGER = false
+var playerPosition
+var currentFound
+var playerCurrentInv
+var currentHunger
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	audioServer.Init(self, musicStream, 0)
 	audioServer.ResetEffects()
+	ResetPlayerValues()
 
 ########################
 #MAIN GENERAL FUNCTIONS#
@@ -54,6 +59,7 @@ func SwitchToIntroCutscene(currentScene):
 func SwitchToMainMenu(currentScene):
 	audioServer.ResetEffects()
 	musicStream.play()
+	ResetPlayerValues()
 	SwitchScene(currentScene, mainMenuScene)
 	
 func SwitchToWinningMenu(currentScene):
@@ -64,3 +70,13 @@ func SwitchToLosingMenu(currentScene):
 
 func SwitchToChildCutscene(currentScene):
 	SwitchScene(currentScene, childCutsceneScene)
+	
+##################
+#PLAYER VARIABLES#
+##################
+
+func ResetPlayerValues():
+	playerPosition = BASE_PLAYER_POSITION
+	currentFound = BASE_CURRENT_FOUND
+	currentHunger = BASE_CURRENT_HUNGER
+	playerCurrentInv = BASE_PLAYER_CURRENT_INV
