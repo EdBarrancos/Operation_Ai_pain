@@ -21,15 +21,15 @@ __meta__ = {
 }
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 151.694, 153.532 )
+position = Vector2( 153.329, 148.329 )
 scale = Vector2( 0.408347, 0.314107 )
 texture = ExtResource( 2 )
 
 [node name="label" type="RichTextLabel" parent="."]
-margin_left = 6.0
-margin_top = 141.0
-margin_right = 298.0
-margin_bottom = 168.0
+margin_left = 5.31573
+margin_top = 134.013
+margin_right = 297.316
+margin_bottom = 161.013
 custom_fonts/normal_font = SubResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false

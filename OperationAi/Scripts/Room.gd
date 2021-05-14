@@ -43,7 +43,9 @@ func _ready():
 	vignette.SetAlpha(monster.GetPercentageHunger())
 	audioServer.Init(self, get_parent().musicStream, monster.GetQuarterHunger())
 
-
+func _process(_delta):
+	if Input.is_action_just_pressed("ui_cancel"):
+		get_parent().SwitchToMainMenu(self)
 
 
 func _on_Monster_monster_is_full():

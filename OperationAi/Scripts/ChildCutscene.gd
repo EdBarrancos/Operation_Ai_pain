@@ -43,7 +43,7 @@ func UpdateLabel():
 func _on_Timer_timeout():
 	StopAudios()
 	if currentLine + 1 > dialogueLines.size():
-		get_parent().SwitchToChildCutscene(self)
+		get_parent().SwitchToRoom(self)
 	else:
 		label.set_text(dialogueLines[currentLine])
 		PlayChildAudio()
