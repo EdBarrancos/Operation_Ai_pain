@@ -21,23 +21,18 @@
 [sub_resource type="Shader" id=1]
 code = "shader_type canvas_item;
 
-uniform sampler2D vignette;
+//uniform sampler2D vignette;
 uniform vec2 resolution = vec2(300, 168);
 
 void fragment() {
-	vec3 vignette_color = texture(vignette, UV).rgb;
-	// Screen texture stores gaussian blurred copies on mipmaps.
-	COLOR.rgb = textureLod(SCREEN_TEXTURE, SCREEN_UV, (1.0 - vignette_color.r) * 4.0).rgb;
-	COLOR.rgb *= texture(vignette, UV).rgb;
-
     // determine center of texture
     vec2 position = (FRAGCOORD.xy / resolution.xy) - vec2(0.5, 0.5);
 
     // determine length of current pixel to center of texture
-    float len = length(position);
+    float len = length(UV - vec2(0.5));
 
     // visualize length for debugging purposes
-    COLOR.a = len;
+    COLOR = vec4(1, vec3(len));
 
 
 }"
@@ -236,8 +231,8 @@ script = ExtResource( 7 )
 [node name="VignetteShader" type="Sprite" parent="CanvasLayer"]
 modulate = Color( 0.223529, 0.0980392, 0.329412, 1 )
 material = SubResource( 2 )
-position = Vector2( 146.175, 84.6729 )
-scale = Vector2( 5, 2.64961 )
+position = Vector2( 149.813, 83.9237 )
+scale = Vector2( 4.69815, 2.6262 )
 texture = ExtResource( 3 )
 script = ExtResource( 6 )
 finalAlpha = 3.0

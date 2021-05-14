@@ -32,6 +32,8 @@ func PlayAnimation():
 func _process(delta):
 	if Input.is_action_just_pressed("ui_accept"):
 		get_parent().SwitchToIntroCutscene(self)
+	elif Input.is_action_just_pressed("ui_cancel"):
+		get_tree().quit()
 
 
 func _on_AnimationPlayer_animation_finished(anim_name):
